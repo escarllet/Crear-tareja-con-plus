@@ -15,28 +15,39 @@ namespace Identifica_el_caracter
 
             Console.WriteLine("Ingrese un caracter o numero");
             string a = Console.ReadLine();
+            int f = a.Length;
 
-            bool isNumeric = int.TryParse(a, out n);
-            bool isChar = char.TryParse(a, out b);
-            caracter = Convert.ToChar(a);
-
-            if (isNumeric == true)
+            if (f == 1)
             {
-                Console.WriteLine("es un numero ");
-            }
-            else if (isChar == true)
-            {
-                if ((caracter == '.') || (caracter == ',') || (caracter == ';') || caracter == ':' || 
-                    (caracter == '¿') || (caracter == '?') || (caracter == '!') || (caracter == '¡'))
+                bool isNumeric = int.TryParse(a, out n);
+                bool isChar = char.TryParse(a, out b);
+                caracter = Convert.ToChar(a);
+
+                if (isNumeric == true)
                 {
-                    Console.WriteLine("es signo de puntuacion ");
+                    Console.WriteLine("es un numero ");
                 }
-                else
+                else if (isChar == true)
                 {
-                     Console.WriteLine("es caracter ");
+                    if ((caracter == '.') || (caracter == ',') || (caracter == ';') || caracter == ':' ||
+                        (caracter == '¿') || (caracter == '?') || (caracter == '!') || (caracter == '¡'))
+                    {
+                        Console.WriteLine("es signo de puntuacion ");
+                    }
+                    else
+                    {
+                        Console.WriteLine("es caracter ");
+                    }
+
                 }
 
             }
+            else if (f !=1)
+            {
+                Console.WriteLine("Por favor solo ingrese un caracter");
+            }
+
+            
             Console.ReadKey();
             
         }
