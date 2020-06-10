@@ -13,29 +13,47 @@ namespace Identifique_si_es_v__c_o_num
             int n;
             char b;
 
-            Console.WriteLine("Ingrese un caracter o numero");
+            Console.WriteLine("Ingrese un caracter");
             string a = Console.ReadLine();
-
-            bool isNumeric = int.TryParse(a, out n);
-            bool isChar = char.TryParse(a, out b);
-
-
-            if (isNumeric == true)
+            int f = a.Length;
+            if (f==1)
             {
-                Console.WriteLine("es un numero ");
-            }
-            else if (isChar == true)
-            {
-                if (Equals(a, "a"))
+                bool isNumeric = int.TryParse(a, out n);
+                bool isChar = char.TryParse(a, out b);
+                char[] vocales = {'a','e','i','o','u','A','E','I','O','U'};
+                char[] consonantes = {'b', 'c', 'd', 'f', 'g', 'h', 'j', 'k', 'l', 'm', 'n', 'ñ', 
+                    'p', 'q', 'r', 's', 't', 'v', 'w', 'x', 'y', 'z','B', 'C', 'D', 'F', 'G', 'H', 'J', 'K', 'L', 'M', 'N', 'Ñ',
+                    'P', 'Q', 'R', 'S', 'T', 'V', 'W', 'X', 'Y', 'Z' };
+                char p = Convert.ToChar(a);
+                if (isNumeric == true)
                 {
-                    Console.WriteLine("es vocal ");
+                    Console.WriteLine("es un numero ");
                 }
-                else
+                else if (isChar == true)
                 {
-                    Console.WriteLine("es consonante ");
-                }
+                    foreach (var item in vocales)
+                    {
+                        if (p==item)
+                        {
+                            Console.WriteLine(p+" es una vocal");
+                            break;
+                        }
 
+                    }
+                    foreach (var item in consonantes)
+                    {
+                        if (p == item)
+                        {
+                            Console.WriteLine(p + " es una consonante");
+                            break;
+                        }
+
+                    }
+
+
+                }
             }
+            
             Console.ReadKey();
 
         }
