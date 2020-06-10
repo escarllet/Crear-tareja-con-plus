@@ -4,21 +4,21 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Identifica_el_caracter
+namespace Identifique_si_es_v__c_o_num
 {
     class Program
     {
         static void Main(string[] args)
         {
             int n;
-            char b,caracter;
+            char b;
 
             Console.WriteLine("Ingrese un caracter o numero");
             string a = Console.ReadLine();
 
             bool isNumeric = int.TryParse(a, out n);
             bool isChar = char.TryParse(a, out b);
-            caracter = Convert.ToChar(a);
+
 
             if (isNumeric == true)
             {
@@ -26,20 +26,18 @@ namespace Identifica_el_caracter
             }
             else if (isChar == true)
             {
-                if ((caracter == '.') || (caracter == ',') || (caracter == ';') || caracter == ':' || 
-                    (caracter == '¿') || (caracter == '?') || (caracter == '!') || (caracter == '¡'))
+                if (Equals(a, "a"))
                 {
-                    Console.WriteLine("es signo de puntuacion ");
+                    Console.WriteLine("es vocal ");
                 }
                 else
                 {
-                     Console.WriteLine("es caracter ");
+                    Console.WriteLine("es consonante ");
                 }
 
             }
             Console.ReadKey();
-            
+
         }
     }
 }
-       
